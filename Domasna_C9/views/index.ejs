@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits&Vegetables</title>
+
+    <style>
+        body{
+            background-color: rgb(225, 194, 248);
+        }
+        table {
+            background-color: white;
+        }
+        h1 {
+            color: blueviolet;
+            font-style: italic;
+            font-size: 28px;
+        }
+        form label, input {
+            margin: 10px;
+        }
+        #button {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adding new vegetable or fruit in the table</h1> <hr>
+    <h4>User: <%= ime%> <%= prezime%></h4>
+
+    <!-- Creating lists with ovoshje and zelenchuk elements -->
+    <h5>Favorite fruits</h5>
+    <ol>
+        <% ovoshje.forEach(element => {  %>
+            <li><%= element%></li>
+        <% }); %>
+    </ol>
+
+    <h5>Favorite vegetables</h5>
+    <ol>
+        <% zelenchuk.forEach(element => {  %>
+            <li><%= element%></li>
+        <% }); %>
+    </ol>
+
+
+    <!-- Creating a table with all elements from vitamini -->
+    <table border="1" width="40%">
+        <tr>
+            <th>Name</th>
+            <th>Vitamins</th>
+            <th>Minerals</th>
+        </tr>
+
+        <% vitamini.forEach (vit => { %>
+        <tr>
+            <td><%= vit.ime%></td>
+            <td><%= vit.vitamin%></td>
+            <td><%= vit.mineral%></td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <!-- Creating form to add new element in the table -->
+    <form action="/zelenchuk" method="post">
+        <h3>Add new vegetable/fruit here:</h3>
+
+        <label for="ime">Name:</label>
+        <input type="text" id="ime" name="ime" required> <br>
+
+        <label for="vitamin">Vitamin:</label>
+        <input type="text" id="vitamin" name="vitamin" required> <br>
+        
+        <label for="mineral">Mineral:</label>
+        <input type="text" id="mineral" name="mineral" required> <br>
+
+        <input type="submit" value="Submit" id="button">
+    </form> 
+</body>
+</html>
