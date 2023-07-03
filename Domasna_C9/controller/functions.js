@@ -1,4 +1,3 @@
-const fs = require("fs");
 
 //* Object with data
 let domasna = {
